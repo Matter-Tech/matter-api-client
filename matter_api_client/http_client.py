@@ -33,6 +33,7 @@ def get(url: str, headers: {} = None) -> Response:
         )
     return _process_response(response)
 
+
 @retry_if_failed
 def post(url: str, payload: dict = None, headers: dict = None) -> Response:
     try:
@@ -45,6 +46,7 @@ def post(url: str, payload: dict = None, headers: dict = None) -> Response:
         )
     return _process_response(response)
 
+
 @retry_if_failed
 def put(url: str, payload: dict = None, headers: dict = None) -> Response:
     try:
@@ -56,6 +58,7 @@ def put(url: str, payload: dict = None, headers: dict = None) -> Response:
             detail=ex,
         )
     return _process_response(response)
+
 
 @retry_if_failed
 def delete(url: str, payload: dict = None, headers: dict = None) -> Response:

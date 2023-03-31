@@ -11,7 +11,6 @@ def retry_if_failed(method, delays=(0, 1, 5)):
     @wraps(method)
     def _impl(*args, **kwargs):
         for delay in itertools.chain(delays, [None]):
-
             try:
                 result = method(*args, **kwargs)
             except APIClientError as ex:

@@ -45,6 +45,7 @@ async def post(url: str, payload: dict = None, headers: dict = None) -> Response
                 detail=ex,
             )
 
+
 @retry_if_failed
 async def put(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
@@ -57,6 +58,7 @@ async def put(url: str, payload: dict = None, headers: dict = None) -> Response:
                 description=str(ex),
                 detail=ex,
             )
+
 
 @retry_if_failed
 async def delete(url: str, payload: dict = None, headers: dict = None) -> Response:

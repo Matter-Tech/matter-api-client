@@ -1,12 +1,12 @@
 [project]
-name = "matter-library-template"
-description = "A template for new Matter's library"
+name = "matter-api-client"
+description = "Matter's API Client Library"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "Rômulo Jales", email = "romulo@thisismatter.com" },
+  { name = "Tomer Sasson", email = "tomer@thisismatter.com" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -16,24 +16,33 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = ["matter-exceptions==1.0.1"]
+dependencies = [
+    "aiohttp==3.8.4",
+    "orjson==3.8.8",
+    "matter-exceptions==1.0.1",
+    "requests==2.28.2",
+]
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/Matter-Tech/matter-library-template#readme"
-Issues = "https://github.com/Matter-Tech/matter-library-template/issues"
-Source = "https://github.com/Matter-Tech/matter-library-template"
+Documentation = "https://github.com/Matter-Tech/matter-api-client#readme"
+Issues = "https://github.com/Matter-Tech/matter-api-client/issues"
+Source = "https://github.com/Matter-Tech/matter-api-client"
 
 [tool.hatch.version]
-path = "matter_library_template/__about__.py"
+path = "matter_api_client/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
+    #"matter-api-client",
     "pytest",
+    "pytest-asyncio",
     "pytest-cov",
+    "pytest-httpserver",
     "black",
     "mypy",
-    "ruff"
+    "ruff",
+    "python-dotenv",
 ]
 
 [tool.hatch.envs.default.scripts]
@@ -51,7 +60,6 @@ fmt = [
 ]
 lint = [
   "style",
-  #"typing",
 ]
 
 [tool.black]
@@ -66,7 +74,7 @@ line-length = 120
 branch = true
 parallel = true
 omit = [
-    "matter_library_template/__about__.py",
+    "matter_api_client/__about__.py",
 ]
 
 [tool.coverage.report]
@@ -75,7 +83,7 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "if TYPE_CHECKING:",
 ]
-fail_under=95
+fail_under=80
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

@@ -1,9 +1,9 @@
-# matter-exceptions
+# matter-api-client
 
 **Table of Contents**
 
 - [Installation](#installation)
-- [License](#license)
+- [License](./LICENSE)
 
 ## Getting started
 
@@ -13,7 +13,7 @@ to the new library's name.
 ## Installation
 
 ```console
-pip install matter-exceptions
+pip install matter-api-client
 ```
 
 ## Contributing

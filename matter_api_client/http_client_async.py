@@ -2,6 +2,7 @@ import logging
 import orjson
 from aiohttp import ClientSession, ClientError
 
+from .decorators import retry_if_failed
 from .response import Response
 from .exceptions import APIClientError
 
@@ -17,6 +18,7 @@ async def _process_response(response) -> Response:
         return Response(status_code=response.status, text=text, json=json)
 
 
+@retry_if_failed
 async def get(url: str, headers: {} = None) -> Response:
     async with ClientSession() as session:
         try:
@@ -30,6 +32,7 @@ async def get(url: str, headers: {} = None) -> Response:
             )
 
 
+@retry_if_failed
 async def post(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:
@@ -42,7 +45,7 @@ async def post(url: str, payload: dict = None, headers: dict = None) -> Response
                 detail=ex,
             )
 
-
+@retry_if_failed
 async def put(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:
@@ -55,7 +58,7 @@ async def put(url: str, payload: dict = None, headers: dict = None) -> Response:
                 detail=ex,
             )
 
-
+@retry_if_failed
 async def delete(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:

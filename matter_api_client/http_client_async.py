@@ -6,7 +6,6 @@ from .response import Response
 from .exceptions import APIClientError
 
 
-
 async def _process_response(response) -> Response:
     text = await response.text()
 
@@ -18,7 +17,7 @@ async def _process_response(response) -> Response:
         return Response(status_code=response.status, text=text, json=json)
 
 
-async def get(url: str, headers: {}=None) -> Response:
+async def get(url: str, headers: {} = None) -> Response:
     async with ClientSession() as session:
         try:
             async with session.get(url=url, headers=headers) as response:
@@ -31,7 +30,7 @@ async def get(url: str, headers: {}=None) -> Response:
             )
 
 
-async def post(url: str, payload: dict=None, headers: dict=None) -> Response:
+async def post(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:
             async with session.post(url=url, json=payload, headers=headers) as response:
@@ -44,7 +43,7 @@ async def post(url: str, payload: dict=None, headers: dict=None) -> Response:
             )
 
 
-async def put(url: str, payload: dict=None, headers: dict=None) -> Response:
+async def put(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:
             async with session.put(url=url, json=payload, headers=headers) as response:
@@ -57,7 +56,7 @@ async def put(url: str, payload: dict=None, headers: dict=None) -> Response:
             )
 
 
-async def delete(url: str, payload: dict=None, headers: dict=None) -> Response:
+async def delete(url: str, payload: dict = None, headers: dict = None) -> Response:
     async with ClientSession() as session:
         try:
             async with session.delete(url=url, json=payload, headers=headers) as response:

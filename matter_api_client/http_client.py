@@ -6,7 +6,6 @@ from .response import Response
 from .exceptions import APIClientError
 
 
-
 def _process_response(response) -> Response:
     try:
         return Response(
@@ -21,7 +20,7 @@ def _process_response(response) -> Response:
         )
 
 
-def get(url: str, headers: {}=None) -> Response:
+def get(url: str, headers: {} = None) -> Response:
     try:
         response = requests.get(url=url, headers=headers)
     except ConnectionError as ex:
@@ -33,7 +32,7 @@ def get(url: str, headers: {}=None) -> Response:
     return _process_response(response)
 
 
-def post(url: str, payload: dict=None, headers: dict=None) -> Response:
+def post(url: str, payload: dict = None, headers: dict = None) -> Response:
     try:
         response = requests.post(url=url, headers=headers, data=payload)
     except ConnectionError as ex:
@@ -45,7 +44,7 @@ def post(url: str, payload: dict=None, headers: dict=None) -> Response:
     return _process_response(response)
 
 
-def put(url: str, payload: dict=None, headers: dict=None) -> Response:
+def put(url: str, payload: dict = None, headers: dict = None) -> Response:
     try:
         response = requests.put(url=url, headers=headers, data=payload)
     except ConnectionError as ex:
@@ -57,7 +56,7 @@ def put(url: str, payload: dict=None, headers: dict=None) -> Response:
     return _process_response(response)
 
 
-def delete(url: str, payload: dict=None, headers: dict=None) -> Response:
+def delete(url: str, payload: dict = None, headers: dict = None) -> Response:
     try:
         response = requests.delete(url=url, headers=headers, data=payload)
     except ConnectionError as ex:

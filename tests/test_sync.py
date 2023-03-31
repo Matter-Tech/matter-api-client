@@ -1,7 +1,6 @@
 from matter_api_client.http_client import get, post, put, delete
 
 
-
 def test_get(httpserver):
     body = '{"Hello": "Goodbye"}'
     endpoint = "/hello"

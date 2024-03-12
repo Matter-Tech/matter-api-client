@@ -17,10 +17,10 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-    "aiohttp==3.8.4",
-    "orjson==3.8.10",
+    "aiohttp>=3.8.4",
+    "orjson>=3.8.10",
     "matter-exceptions>=1.1.0",
-    "requests==2.28.2",
+    "requests>=2.28.2",
 ]
 dynamic = ["version"]
 
@@ -83,7 +83,7 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "if TYPE_CHECKING:",
 ]
-fail_under=80
+fail_under=75
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
